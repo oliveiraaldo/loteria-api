@@ -1,0 +1,8 @@
+/vendor/
+/.idea/
+*.log
+*.env
+loteria.db
+/node_modules/
+.DS_Store
+/public/storage
