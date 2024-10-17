@@ -6,9 +6,12 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     sqlite3 \
     pkg-config \
-    && docker-php-ext-configure pdo_sqlite \
-    && docker-php-ext-install pdo pdo_sqlite
-
+    git \
+    unzip \
+    && docker-php-ext-configure pdo_sqlite --with-pdo-sqlite=/usr/local \
+    && docker-php-ext-install pdo pdo_sqlite \
+    && docker-php-ext-install zip
+    
 # Definir o diretório de trabalho
 WORKDIR /var/www/html
 
