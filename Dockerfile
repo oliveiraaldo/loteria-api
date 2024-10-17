@@ -8,9 +8,10 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     git \
     unzip \
-    && docker-php-ext-configure pdo_sqlite --with-pdo-sqlite=/usr/local \
-    && docker-php-ext-install pdo pdo_sqlite \
-    && docker-php-ext-install zip
+    libzip-dev \
+    zlib1g-dev \
+    && docker-php-ext-configure pdo_sqlite \
+    && docker-php-ext-install pdo pdo_sqlite zip
     
 # Definir o diretório de trabalho
 WORKDIR /var/www/html
@@ -26,6 +27,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 # Instalar dependências PHP do projeto
 RUN if [ -f "composer.json" ]; then composer install; fi
+
+# Executar Composer update para garantir que todas as dependências estão atualizadas
+RUN composer update
 
 # Executar script para criar o banco de dados
 RUN php database/create_db.php
