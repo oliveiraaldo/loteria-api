@@ -47,6 +47,7 @@ Este projeto é uma API para sorteios de loteria que permite gerar bilhetes, sor
 ## Endpoints da API
 
 - **POST /bilhete**: Gera bilhetes de loteria para um usuário.
+  - Endpoint: http://localhost:8080/?route=bilhete
   - Corpo da requisição (JSON):
     ```json
     {
@@ -66,6 +67,7 @@ Este projeto é uma API para sorteios de loteria que permite gerar bilhetes, sor
     ```
 
 - **GET /sorteio**: Gera o bilhete premiado.
+  - Endpoint: http://localhost:8080/?route=sorteio
   - Resposta (JSON):
     ```json
     {
@@ -74,6 +76,7 @@ Este projeto é uma API para sorteios de loteria que permite gerar bilhetes, sor
     ```
 
 - **GET /conferir**: Confere os bilhetes gerados com o bilhete premiado e retorna um HTML com os números corretos em negrito.
+    - Endpoint: http://localhost:8080/?route=conferir
 
 ## Executando os Testes
 
