@@ -1,51 +1,3 @@
-# Loteria API - Código Detalhado dos Arquivos
-
-Aqui está o código de cada arquivo do projeto, incluindo comentários detalhados para que você possa entender o funcionamento e a lógica por trás de cada parte.
-
-## Arquivos e Códigos
-
-### 1. **src/Controllers/SorteioController.php**
-
-```php
-<?php
-namespace Loteria\Controllers;
-
-use Loteria\Services\SorteioService;
-
-class SorteioController
-{
-    private $sorteioService;
-
-    public function __construct(SorteioService $sorteioService)
-    {
-        $this->sorteioService = $sorteioService;
-    }
-
-    // Método para gerar bilhetes
-    public function gerarBilhetes($quantidadeBilhetes, $quantidadeDezenas)
-    {
-        return $this->sorteioService->gerarBilhetes($quantidadeBilhetes, $quantidadeDezenas);
-    }
-
-    // Método para gerar o sorteio
-    public function gerarSorteio()
-    {
-        return $this->sorteioService->gerarBilhetePremiado();
-    }
-
-    // Método para conferir os bilhetes
-    public function conferirBilhetes()
-    {
-        return $this->sorteioService->conferirBilhetes();
-    }
-}
-```
-
-- **`__construct`**: Inicializa o `SorteioService`, que contém a lógica principal.
-- **`gerarBilhetes`**, **`gerarSorteio`**, **`conferirBilhetes`**: Chamam métodos do serviço para executar as funcionalidades principais.
-
-## README Atualizado
-
 # Loteria API
 
 Este projeto é uma API para sorteios de loteria que permite gerar bilhetes, sortear números e conferir bilhetes. A aplicação foi desenvolvida em PHP e utiliza um banco de dados SQLite para armazenar os bilhetes gerados e o bilhete premiado.
@@ -72,7 +24,7 @@ Este projeto é uma API para sorteios de loteria que permite gerar bilhetes, sor
 1. **Clone o repositório**:
 
    ```sh
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/oliveiraaldo/loteria-api
    cd loteria-api
    ```
 
